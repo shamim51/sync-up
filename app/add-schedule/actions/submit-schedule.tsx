@@ -23,6 +23,7 @@ export async function submitSchedule(prevState: any, formData: FormData) {
     //     isBusy: value === 'on' ? 1 : 0,
     //   })
     // }
+    console.log(formData)
 
     revalidatePath('/schedule')
     return { success: true, message: 'Schedule submitted successfully!' }
