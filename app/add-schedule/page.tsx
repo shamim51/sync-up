@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import { toast } from "@/components/ui/use-toast"
-import { submitSchedule } from "@/app/actions/submit-schedule"
+import { toast } from "@/hooks/use-toast"
+import { submitSchedule } from "./actions/submit-schedule"
 
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 const timeSlots = [
@@ -67,7 +67,7 @@ export default function WeeklySchedule() {
               </div>
             ))}
             {displayDays.map(day => (
-              <React.Fragment key={day}>
+              <div key={day}>
                 <div className="font-semibold text-center p-2 whitespace-nowrap">{day}</div>
                 {timeSlots.map(time => (
                   <button
@@ -90,7 +90,7 @@ export default function WeeklySchedule() {
                     />
                   </button>
                 ))}
-              </React.Fragment>
+              </div>
             ))}
           </div>
           <div className="flex justify-center items-center mt-4 space-x-4">
